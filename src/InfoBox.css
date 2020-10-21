@@ -1,0 +1,51 @@
+.infoBox {
+  flex: 1;
+}
+
+.infoBox:not(:last-child) {
+  margin-right: 10px;
+  background-color: #040c2c;
+  
+}
+
+.infoBox:last-child {
+  background-color: #040c2c;
+}
+
+.infoBox--selected {
+  border-top: 10px solid rgb(6, 175, 6);
+}
+
+.infoBox--red {
+  border-color: rgb(201, 6, 6);
+}
+
+.infoBox--orange {
+  border-color: orange;
+}
+
+.infoBox__cases--green {
+  color: rgb(6, 175, 6) !important;
+}
+
+.infoBox__cases--orange {
+  color: rgb(255, 115, 0) !important;
+}
+
+.infoBox__cases {
+  color: red;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.infoBox__total {
+  color: orange;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  margin-top: 15px !important;
+}
+
+.infoBox__title{
+  color: yellow;
+}
