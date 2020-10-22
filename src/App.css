@@ -29,38 +29,46 @@ body {
 
 .app__header > h1 {
   color: orange;
+  font-weight: 900;
   font-size: 3rem;
 }
 
 .app__stats {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  margin: 16px 0;
 }
 
 .app__right {
   flex: 0.9;
+  width: 70%;
 }
 
 .app__left{
-  background-color: #182146;
-  height: 690px;
+  background-color: #000518;
+  height: fit-content;
+  width: 20%;
+  
 }
 
 .app__information > h3 {
   background-color: #182146;
   color: orange;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .app__information > h3:last-of-type {
   background-color: #182146;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
 }
 
 .CardContent{
   background-color: #182146;
+  border-radius: 20px;
+  margin-bottom: 16px;
 }
 
 

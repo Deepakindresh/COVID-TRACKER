@@ -1,15 +1,19 @@
 .infoBox {
   flex: 1;
+  background-color: #040c2c;
 }
 
 .infoBox:not(:last-child) {
-  margin-right: 10px;
   background-color: #040c2c;
-  
+  border-radius: 20px;
+  margin-bottom: 25px;
+  padding: 10px 3px;
 }
 
 .infoBox:last-child {
   background-color: #040c2c;
+  border-radius: 20px;
+  padding: 10px 3px;
 }
 
 .infoBox--selected {

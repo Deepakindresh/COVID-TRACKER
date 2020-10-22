@@ -89,18 +89,8 @@ const App = () => {
           </FormControl>
         </div>
     <div className="app">
-      <Card className="app__left">
-        <CardContent className="CardContent">
-          <div className="app__information">
-            <h3>Live Cases by Country</h3>
-            <Table countries={tableData} />
-            <h3>Worldwide new {casesType}</h3>
-            <LineGraph casesType={casesType} />
-          </div>
-        </CardContent>
-      </Card>
-      <div className="app__right">
-        <div className="app__stats">
+      <div className="app__left">
+         <div className="app__stats">
           <InfoBox
             onClick={(e) => setCasesType("cases")}
             title="TOTAL CASES / DAY"
@@ -125,12 +115,30 @@ const App = () => {
             total={numeral(countryInfo.deaths).format("0.0a")}
           />
         </div>
+
+        
+      </div>
+      
+      <div className="app__right">
         <Map
           countries={mapCountries}
           casesType={casesType}
           center={mapCenter}
           zoom={mapZoom}
         />
+
+        <CardContent className="CardContent">
+          <div className="app__information">
+            <h3>Live Cases by Country</h3>
+            <Table countries={tableData} />
+          </div>
+        </CardContent>
+        <CardContent className="CardContent">
+          <div className="app__information">
+            <h3>Worldwide new {casesType}</h3>
+            <LineGraph casesType={casesType} />
+          </div>
+        </CardContent>
       </div>
 
     </div>
