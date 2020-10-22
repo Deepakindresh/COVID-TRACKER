@@ -6,16 +6,45 @@
   height: 400px;
 }
 
-.table tr {
+.table__head{
+  width: 100%;
+  display: flex;
+  
+}
+
+.table th{
   display: flex;
   justify-content: space-between;
-  
-
+  color: yellow;
+  font-weight: 900;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
 }
+.table  tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+ }
 
 .table td {
   padding: 0.5rem;
+  width: 100%;
   border: none;
+  
+}
+
+.table__cases{
+  color: orange;
+}
+
+.table__recovered{
+  color: rgb(6, 175, 6);
+}
+
+.table__deaths{
+  color: rgb(201, 6, 6);
 }
 
 .table tr:nth-of-type(odd) {

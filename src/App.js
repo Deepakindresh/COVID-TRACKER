@@ -114,6 +114,37 @@ const App = () => {
             cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={numeral(countryInfo.deaths).format("0.0a")}
           />
+          <InfoBox
+            title="CASES / MILLION"
+            isOrange
+            active={casesType === "casesPerOneMillion"}
+            cases={numeral(countryInfo.casesPerOneMillion).format("0.0a")}
+            
+          />
+
+          <InfoBox
+            title="RECOVERED / MILLION"
+            active={casesType === "recoveredPerOneMillion"}
+            cases={numeral(countryInfo.recoveredPerOneMillion).format("0.0a")}
+            
+          />
+
+          <InfoBox
+            title="TESTS / MILLION"
+            isOrange
+            active={casesType === "testsPerOneMillion"}
+            cases={numeral(countryInfo.testsPerOneMillion).format("0.0a")}
+            
+          />
+
+          <InfoBox
+            title="CRITICAL CASES"
+            isRed
+            active={casesType === "critical"}
+            cases={numeral(countryInfo.critical).format("0.0a")}
+            
+          />
+          
         </div>
 
         
@@ -126,17 +157,18 @@ const App = () => {
           center={mapCenter}
           zoom={mapZoom}
         />
+        
+        <CardContent className="CardContent">
+          <div className="app__information">
+            <h3>Worldwide new {casesType}</h3>
+            <LineGraph casesType={casesType} />
+          </div>
+        </CardContent>
 
         <CardContent className="CardContent">
           <div className="app__information">
             <h3>Live Cases by Country</h3>
             <Table countries={tableData} />
-          </div>
-        </CardContent>
-        <CardContent className="CardContent">
-          <div className="app__information">
-            <h3>Worldwide new {casesType}</h3>
-            <LineGraph casesType={casesType} />
           </div>
         </CardContent>
       </div>

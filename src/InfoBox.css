@@ -6,12 +6,30 @@
 .infoBox:not(:last-child) {
   background-color: #040c2c;
   border-radius: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   padding: 10px 3px;
 }
 
-.infoBox:last-child {
-  background-color: #040c2c;
+.infoBox:nth-child(4) {
+  background-color: #182146;
+  border-radius: 20px;
+  padding: 10px 3px;
+}
+
+.infoBox:nth-child(5) {
+  background-color: #182146;
+  border-radius: 20px;
+  padding: 10px 3px;
+}
+
+.infoBox:nth-child(6) {
+  background-color: #182146;
+  border-radius: 20px;
+  padding: 10px 3px;
+}
+
+.infoBox:nth-child(7) {
+  background-color: #182146;
   border-radius: 20px;
   padding: 10px 3px;
 }

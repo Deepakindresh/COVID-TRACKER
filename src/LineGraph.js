@@ -24,6 +24,9 @@ const options = {
   scales: {
     xAxes: [
       {
+        ticks: {
+          fontColor: 'white'
+        },
         type: "time",
         time: {
           format: "MM/DD/YY",
@@ -37,6 +40,7 @@ const options = {
           display: false,
         },
         ticks: {
+          fontColor: 'white',
           // Include a dollar sign in the ticks
           callback: function (value, index, values) {
             return numeral(value).format("0a");
@@ -94,7 +98,9 @@ function LineGraph({ casesType }) {
               {
                 backgroundColor: "rgba(3, 7, 51, 0.9)",
                 borderColor: bg,
+                pointBackgroundColor: bg,
                 data: data,
+                fontColor: "white"
               },
             ],
           }}
