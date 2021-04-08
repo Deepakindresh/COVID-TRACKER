@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
+
 const options = {
   legend: {
     display: false,
@@ -53,8 +54,14 @@ const options = {
 
 const buildChartData = (data, casesType) => {
   let chartData = [];
+  let maxCases=0, dateCases, maxDeaths=0, dateDeaths;
   let lastDataPoint;
   for (let date in data.cases) {
+    if(maxCases<(data[casesType][date] - lastDataPoint))
+    {
+      maxCases = data[casesType][date] - lastDataPoint
+      dateCases = date;
+    }
     if (lastDataPoint) {
       let newDataPoint = {
         x: date,
@@ -64,11 +71,29 @@ const buildChartData = (data, casesType) => {
     }
     lastDataPoint = data[casesType][date];
   }
+  
   return chartData;
 };
 
+const maxCases = (data,casesType) => {
+  let maxCases=0, dateCases, maxDeaths=0, dateDeaths;
+  let lastDataPoint;
+  for (let date in data.cases) {
+    if(maxCases<(data[casesType][date] - lastDataPoint))
+    {
+      maxCases = data[casesType][date] - lastDataPoint
+      dateCases = date;
+    }
+    lastDataPoint = data[casesType][date];
+  }
+  console.log("Max cases: ",maxCases)
+  console.log("Date: ",dateCases)
+  return {maxCases,dateCases};
+}
+
 function LineGraph({ casesType }) {
   const [data, setData] = useState({});
+  const [mcases,setMcases] = useState({})
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,6 +103,8 @@ function LineGraph({ casesType }) {
         })
         .then((data) => {
           let chartData = buildChartData(data, casesType);
+          let mc = maxCases(data,casesType);
+          setMcases(mc);
           setData(chartData);
           console.log(chartData);
           // buildChart(chartData);
@@ -91,7 +118,8 @@ function LineGraph({ casesType }) {
 
   return (
     <div>
-      {data?.length > 0 && (
+      <div>
+        {data?.length > 0 && (
         <Line
           data={{
             datasets: [
@@ -107,6 +135,13 @@ function LineGraph({ casesType }) {
           options={options}
         />
       )}
+      </div>
+      <div>
+        <h1>Maximum {casesType}</h1>
+          <h2>{mcases.dateCases}</h2>
+          <h3>{mcases.maxCases}</h3>
+      </div>
+      
     </div>
   );
 }

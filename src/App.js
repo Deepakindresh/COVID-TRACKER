@@ -114,6 +114,8 @@ const App = () => {
             cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={numeral(countryInfo.deaths).format("0.0a")}
           />
+
+        
           <InfoBox
             title="CASES / MILLION"
             isOrange
