@@ -86,8 +86,7 @@ const maxCases = (data,casesType) => {
     }
     lastDataPoint = data[casesType][date];
   }
-  console.log("Max cases: ",maxCases)
-  console.log("Date: ",dateCases)
+  
   return {maxCases,dateCases};
 }
 
@@ -137,9 +136,10 @@ function LineGraph({ casesType }) {
       )}
       </div>
       <div>
-        <h1>Maximum {casesType}</h1>
-          <h2>{mcases.dateCases}</h2>
-          <h3>{mcases.maxCases}</h3>
+        <br></br>
+        <h1 style={{color: bg}}>Maximum {casesType}</h1>
+          <h2 style={{color: "white"}}>{mcases.dateCases}</h2>
+          <h3 style={{color: bg}}>{mcases.maxCases}</h3>
       </div>
       
     </div>
